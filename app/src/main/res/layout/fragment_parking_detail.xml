@@ -2,75 +2,58 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout3"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.FormIncidentFragment"
-
+    tools:context=".ui.fragments.ParkingDetailFragment"
     >
-
-
-    <androidx.camera.view.PreviewView
-        android:id="@+id/photo_preview"
-        android:layout_width="294dp"
-        android:layout_height="157dp"
-        android:layout_marginTop="76dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingClass">
-
-    </androidx.camera.view.PreviewView>
-
     <EditText
-        android:id="@+id/title"
+        android:id="@+id/license_plate"
         android:layout_width="215dp"
         android:layout_height="46dp"
-        android:layout_marginTop="32dp"
-        android:hint="Titulo"
+        android:layout_marginTop="132dp"
+        android:hint="Matrícula"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photo_preview" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/description"
+        android:id="@+id/students"
         android:layout_width="205dp"
         android:layout_height="49dp"
         android:layout_marginTop="56dp"
-        android:hint="Description"
+        android:hint="Nº Alumnos"
         android:inputType="textLongMessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title">
+        app:layout_constraintTop_toBottomOf="@+id/license_plate">
 
     </EditText>
 
     <EditText
-        android:id="@+id/ubication"
+        android:id="@+id/Date"
         android:layout_width="197dp"
         android:layout_height="64dp"
         android:layout_marginTop="52dp"
-        android:hint="Ubicación"
+        android:hint="Fecha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description">
+        app:layout_constraintTop_toBottomOf="@+id/students">
 
     </EditText>
 
     <Button
-        android:id="@+id/buttom_create_incident"
+        android:id="@+id/buttom_create_request"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:text="Crear"
+        android:text="Enviar Solicitud"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ubication">
+        app:layout_constraintTop_toBottomOf="@+id/Date">
 
     </Button>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

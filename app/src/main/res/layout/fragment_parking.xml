@@ -1,13 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.ParkingFragment">
+    tools:context=".ui.fragments.ParkingFragment"
+    >
 
-    <TextView
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/parking_cardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="300dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="#8BB9FF">
 
-</FrameLayout>
+
+        <TextView
+            android:id="@+id/request_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="20dp"
+            android:text="Nº de Solicitud: "
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/license_plate"
+            android:text="Matrícula: "
+            android:layout_marginTop="125dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            >
+        </TextView>
+        <TextView
+            android:id="@+id/status"
+            android:text="Estado: "
+            android:layout_marginTop="200dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            >
+        </TextView>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
