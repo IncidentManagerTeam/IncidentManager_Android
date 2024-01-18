@@ -6,51 +6,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.ParkingFragment"
+    android:layout_gravity="center"
     >
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/parking_cardView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/parking_request"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:src="@drawable/incident"
+        app:layout_constraintTop_toBottomOf="@+id/parking_request"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:backgroundTint="#8BB9FF">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.814">
 
-
-        <TextView
-            android:id="@+id/request_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="20dp"
-            android:text="Nº de Solicitud: "
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            >
-        </TextView>
-        <TextView
-            android:id="@+id/license_plate"
-            android:text="Matrícula: "
-            android:layout_marginTop="125dp"
-            android:layout_marginStart="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            >
-        </TextView>
-        <TextView
-            android:id="@+id/status"
-            android:text="Estado: "
-            android:layout_marginTop="200dp"
-            android:layout_marginStart="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            >
-        </TextView>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 </androidx.constraintlayout.widget.ConstraintLayout>

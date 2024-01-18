@@ -7,6 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.ParkingFormFragment"
     >
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/arrow_back" />
     <EditText
         android:id="@+id/license_plate"
         android:layout_width="215dp"
