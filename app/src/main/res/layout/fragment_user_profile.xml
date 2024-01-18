@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.UserProfile">
+
+
+    <TextView
+        android:id="@+id/user"
+        android:layout_width="201dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="72dp"
+        android:text="Perfil Usuario: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="153dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="68dp"
+        android:text="Nombre: Pepito"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user"></TextView>
+
+    <TextView
+        android:id="@+id/user_surname"
+        android:layout_width="135dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="40dp"
+        android:text="Apellido: Grillo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_name"></TextView>
+
+    <TextView
+        android:id="@+id/user_class"
+        android:layout_width="127dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="48dp"
+        android:text="Clase: 2ºDAM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_surname"></TextView>
+
+    <TextView
+        android:id="@+id/user_rol"
+        android:layout_width="89dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="60dp"
+        android:text="Rol: Admin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_class"></TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
