@@ -7,7 +7,7 @@ import com.example.incidentmanager.data.db.repositories.models.User
 
 @Entity(tableName="user")
 data class UserEntity(
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     val username: String,
     val nombre: String,
