@@ -34,7 +34,7 @@ class FormIncidentFragment : Fragment() {
             var descripcion = binding.description.text.toString();
             var ubicacion = binding.ubication.text.toString();
             var imagen = binding.photoPreview.toString();
-            if (titulo.isNotBlank() && descripcion.isNotBlank() && ubicacion.isNotBlank()) {
+            if (titulo.isNotBlank() && descripcion.isNotBlank() && ubicacion.isNotBlank()&&imagen.isNotBlank()) {
                 viewModel.viewModelScope.launch {
                     viewModel.insertIncident(
                         Incidencia(
