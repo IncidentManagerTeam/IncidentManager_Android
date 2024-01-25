@@ -7,19 +7,17 @@ import java.util.Date
 
 @Entity(tableName = "parking")
 data class ParkingEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
     val matricula: String,
+    @PrimaryKey(autoGenerate = true)
     val nsolicitud: Long,
     val nalumnos: Int,
-    val fecha: Date,
+    val fecha: String,
     val estado: String,
 )
 
 fun List<ParkingEntity>.asListParking():List<Parking> {
     return this.map {
         Parking(
-            it.id,
             it.matricula,
             it.nsolicitud,
             it.nalumnos,

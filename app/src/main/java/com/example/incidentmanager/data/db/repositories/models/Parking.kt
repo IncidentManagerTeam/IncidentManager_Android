@@ -6,10 +6,10 @@ import java.util.Date
 
 @Parcelize
 data class Parking(
-    val id: Int,
     val matricula: String,
     val nsolicitud: Long,
     val nalumnos: Int,
-    val fecha: Date,
+    val fecha: String,
     val estado: String
 ) : Parcelable
+
