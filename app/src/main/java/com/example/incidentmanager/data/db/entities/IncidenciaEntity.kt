@@ -7,7 +7,7 @@ import com.example.incidentmanager.data.db.repositories.models.Incidencia
 //incidencia entity 1
 @Entity(tableName = "incidencia")
 data class IncidenciaEntity(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     val titulo: String,
     val descripcion: String,

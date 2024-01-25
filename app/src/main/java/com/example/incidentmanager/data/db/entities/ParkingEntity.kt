@@ -7,7 +7,7 @@ import java.util.Date
 
 @Entity(tableName = "parking")
 data class ParkingEntity(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     val matricula: String,
     val nsolicitud: Long,
