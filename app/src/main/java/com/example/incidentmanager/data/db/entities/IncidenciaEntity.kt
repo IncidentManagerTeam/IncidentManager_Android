@@ -4,6 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.incidentmanager.data.db.repositories.models.Incidencia
 
+//incidencia entity
 @Entity(tableName = "incidencia")
 data class IncidenciaEntity(
     @PrimaryKey
