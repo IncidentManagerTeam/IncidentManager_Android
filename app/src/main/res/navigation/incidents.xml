@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/incidents"
+    app:startDestination="@id/incidentFragment2">
+
+    <fragment
+        android:id="@+id/incidentFragment2"
+        android:name="com.example.incidentmanager.ui.fragments.IncidentFragment"
+        android:label="fragment_incident"
+        tools:layout="@layout/fragment_incident" >
+        <action
+            android:id="@+id/action_incidentFragment2_to_incidentDetailFragment"
+            app:destination="@id/incidentDetailFragment" />
+        <action
+            android:id="@+id/action_incidentFragment2_to_formIncidentFragment"
+            app:destination="@id/formIncidentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/formIncidentFragment"
+        android:name="com.example.incidentmanager.ui.fragments.FormIncidentFragment"
+        android:label="fragment_form_incident"
+        tools:layout="@layout/fragment_form_incident" />
+    <fragment
+        android:id="@+id/incidentDetailFragment"
+        android:name="com.example.incidentmanager.ui.fragments.IncidentDetailFragment"
+        android:label="fragment_incident_detail"
+        tools:layout="@layout/fragment_incident_detail" />
+</navigation>
