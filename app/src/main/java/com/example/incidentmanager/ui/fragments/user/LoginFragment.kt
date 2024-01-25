@@ -1,4 +1,4 @@
-package com.example.incidentmanager.ui.fragments
+package com.example.incidentmanager.ui.fragments.user
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,26 +7,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.incidentmanager.R
-import com.example.incidentmanager.ui.viewmodels.ParkingFormViewModel
+import com.example.incidentmanager.ui.viewmodels.LoginViewModel
 
-class ParkingFormFragment : Fragment() {
+class LoginFragment : Fragment() {
 
     companion object {
-        fun newInstance() = ParkingFormFragment()
+        fun newInstance() = LoginFragment()
     }
 
-    private lateinit var viewModel: ParkingFormViewModel
+    private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_parking_form, container, false)
+        return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ParkingFormViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
