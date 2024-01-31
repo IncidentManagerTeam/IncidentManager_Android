@@ -6,28 +6,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.incidentmanager.R
+import com.example.incidentmanager.databinding.FragmentParkingFormBinding
 import com.example.incidentmanager.ui.viewmodels.ParkingFormViewModel
 
 class ParkingFormFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = ParkingFormFragment()
-    }
-
-    private lateinit var viewModel: ParkingFormViewModel
+    private lateinit var binding: FragmentParkingFormBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_parking_form, container, false)
+        binding = FragmentParkingFormBinding.inflate(inflater, container, false)
+        return  binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ParkingFormViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
 }
