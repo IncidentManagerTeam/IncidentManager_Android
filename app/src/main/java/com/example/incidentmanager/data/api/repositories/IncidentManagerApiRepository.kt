@@ -21,17 +21,34 @@ class IncidentManagerApiRepository @Inject constructor(
     private val csrfService: CsrfService,
     private val registerServie: RegisterService
 ) {
-    suspend fun getAllUser(): List<UserApiModel> {
+    suspend fun getAllUser(email:String): List<UserApiModel> {
         try {
-            // Llamada a la API para obtener la lista de usuarios
             val simpleList = userService.api.getAllUser()
             return simpleList
         } catch (e: Exception) {
-            // Manejo de errores en caso de falla en la llamada a la API
             Log.e("Error", "Error al obtener la lista de usuarios", e)
-            return emptyList() // Devolvemos una lista vacía en caso de error
+            return emptyList()
         }
     }
+    //SUPUESTO GET ONE
+    suspend fun getOneUser(email:String): UserApiModel? {
+        try {
+            // Llamada a la API para obtener la lista de usuarios
+            val simpleList = userService.api.getAllUser()
+            for (i in simpleList){
+                if( email == i.email){
+                    return i;
+                }
+            }
+            return null;
+        } catch (e: Exception) {
+            Log.e("Error", "Error al obtener la lista de usuarios", e)
+            return null
+        }
+    }
+
+
+
 
     suspend fun getAllRegister(): List<RegisterApiModel> {
         try {

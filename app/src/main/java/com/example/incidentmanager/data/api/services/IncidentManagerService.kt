@@ -13,7 +13,7 @@ import javax.inject.Singleton
 
 interface UserApi {
     @GET("api/users")
-    suspend fun getAllUser(): UserApiModel
+    suspend fun getAllUser(): List<UserApiModel>
 }
 
 @Singleton
@@ -27,7 +27,7 @@ class UserService @Inject constructor() {
 
 interface IncidentApi {
     @GET("api/incidents")
-    suspend fun getAllIncidents(): IncidentApiModel
+    suspend fun getAllIncidents(): List<IncidentApiModel>
 }
 
 @Singleton
@@ -41,7 +41,7 @@ class IncidentService @Inject constructor() {
 
 interface ParkingApi {
     @GET("api/parkings")
-    suspend fun getAllParkings(): ParkingApiModel
+    suspend fun getAllParkings(): List<ParkingApiModel>
 }
 
 @Singleton
