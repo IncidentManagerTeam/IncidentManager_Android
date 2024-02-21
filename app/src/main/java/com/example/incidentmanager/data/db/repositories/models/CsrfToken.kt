@@ -4,11 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class User(
-    val id: Int,
-    val email: String,
-    val nombre: String,
-    val apellidos: String,
-    val rol: String,
-    val clase: String
+data class CsrfToken(
+    val token: String,
+    val headerName: String
 ) : Parcelable

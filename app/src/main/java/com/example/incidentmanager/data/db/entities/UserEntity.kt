@@ -9,7 +9,7 @@ import com.example.incidentmanager.data.db.repositories.models.User
 data class UserEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val username: String,
+    val email: String,
     val nombre: String,
     val apellidos: String,
     val rol: String,
@@ -20,7 +20,7 @@ fun List<UserEntity>.asListUser():List<User> {
     return this.map {
         User(
             it.id,
-            it.username,
+            it.email,
             it.nombre,
             it.apellidos,
             it.rol,
