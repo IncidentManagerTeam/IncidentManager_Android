@@ -1,4 +1,4 @@
-package com.example.incidentmanager.ui.fragments
+package com.example.incidentmanager.ui.fragments.incidents
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.fragment.findNavController
-import com.example.incidentmanager.R
 import com.example.incidentmanager.data.db.repositories.models.Incidencia
 import com.example.incidentmanager.databinding.FragmentFormIncidentBinding
 import com.example.incidentmanager.ui.viewmodels.IncidentFormViewModel
@@ -34,7 +32,7 @@ class FormIncidentFragment : Fragment() {
             var descripcion = binding.description.text.toString();
             var ubicacion = binding.ubication.text.toString();
             var imagen = binding.photoPreview.toString();
-            if (titulo.isNotBlank() && descripcion.isNotBlank() && ubicacion.isNotBlank()&&imagen.isNotBlank()) {
+            /*if (titulo.isNotBlank() && descripcion.isNotBlank() && ubicacion.isNotBlank()&&imagen.isNotBlank()) {
                 viewModel.viewModelScope.launch {
                     viewModel.insertIncident(
                         Incidencia(
@@ -45,8 +43,12 @@ class FormIncidentFragment : Fragment() {
             } else {
                 val toastMessage = "Rellene todos los datos"
                 Toast.makeText(requireContext(), toastMessage, Toast.LENGTH_SHORT).show()
-            }
+            }*/
         }
+    }
+    //CameraXConfiguration
+    companion object{
+
     }
 
 }

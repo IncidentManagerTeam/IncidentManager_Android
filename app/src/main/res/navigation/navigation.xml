@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/registerFragment"
+    >
+    <fragment
+        android:id="@+id/previewIncidentFragment"
+        android:name="com.example.incidentmanager.previewIncidentFragment"
+        android:label="previewIncidentFragment" >
+        <action
+            android:id="@+id/action_previewIncidentFragment_to_cameraConfirmFragment"
+            app:destination="@id/cameraConfirmFragment">
+            <argument
+                android:name="imageUri"
+                app:argType="string"></argument>
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/cameraConfirmFragment"
+        android:name="com.example.democamara.CameraConfirmFragment"
+        android:label="fragment_camera_confirm"
+        tools:layout="@layout/fragment_camera_confirm" />
+</navigation>
