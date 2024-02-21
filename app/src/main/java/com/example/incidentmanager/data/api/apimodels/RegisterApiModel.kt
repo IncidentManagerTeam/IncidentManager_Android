@@ -1,9 +1,6 @@
 package com.example.incidentmanager.data.api.apimodels
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-
-data class UserApiModel (
+data class RegisterApiModel(
     val id: Int,
     val name: String,
     val surname: String,
@@ -13,9 +10,9 @@ data class UserApiModel (
     val password: String
 )
 
-data class UserModel (
+data class RegisterModel(
     val name: String,
     val surname: String,
     val email: String,
-    val course: String
+    val course: String,
 )
