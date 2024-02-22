@@ -34,7 +34,7 @@ class IncidentManagerRepository @Inject constructor(
         }
     }
 
-    suspend fun logIn(): UserApiModel? {
+    fun logIn(): UserApiModel? {
         return userLogged
     }
 }

@@ -1,4 +1,4 @@
-package com.example.democamara
+package com.example.incidentmanager.ui.fragments.camera
 
 import android.Manifest
 import android.content.ContentValues

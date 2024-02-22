@@ -38,7 +38,7 @@ class ParkingFormFragment : Fragment() {
             var fecha = getDatePhone()
             binding.Date.text = fecha
 
-            if (nAlumnos.isNotBlank() && matricula.isNotBlank() && fecha.isNotBlank()) {
+            /*if (nAlumnos.isNotBlank() && matricula.isNotBlank() && fecha.isNotBlank()) {
                 viewModel.viewModelScope.launch {
                     viewModel.insertParking(
                         Parking(
@@ -48,7 +48,7 @@ class ParkingFormFragment : Fragment() {
             } else {
                 val toastMessage = "Rellene todos los datos"
                 Toast.makeText(requireContext(), toastMessage, Toast.LENGTH_SHORT).show()
-            }
+            }*/
     }
     }
     private fun getDatePhone(): String {

@@ -47,18 +47,6 @@ class IncidentManagerApiRepository @Inject constructor(
         }
     }
 
-    suspend fun getRegister(): UserApiModel? {
-        try {
-            // Llamada a la API para obtener la lista de registros
-            val registerObject = registerService.api.getRegister()
-            return registerObject
-        } catch (e: Exception) {
-            // Manejo de errores en caso de falla en la llamada a la API
-            Log.e("Error", "Error al obtener la lista de registros", e)
-            return null // Devolvemos una lista vacía en caso de error
-        }
-    }
-
     suspend fun postRegister(user: UserModel, csrf: String): UserApiModel? {
         try {
             // Llamada a la API para registrar un nuevo usuario
