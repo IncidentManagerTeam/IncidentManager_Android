@@ -1,5 +1,6 @@
 package com.example.incidentmanager.data.db.repositories
 
+import com.example.incidentmanager.data.api.repositories.IncidentManagerApiRepository
 import com.example.incidentmanager.data.db.repositories.models.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -8,7 +9,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class DigimonRepository @Inject constructor(
+class IncidentManagerRepository @Inject constructor(
     private val apiRepository: IncidentManagerApiRepository
 ){
     private var CSRF_TOKEN:String ="";
@@ -22,7 +23,7 @@ class DigimonRepository @Inject constructor(
             userLogged = userCreated
         return userCreated;
     }
-    suspend fun LogIn():User?{
+    fun LogIn():User?{
         return userLogged
     }
 }

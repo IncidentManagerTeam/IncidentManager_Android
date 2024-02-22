@@ -1,4 +1,4 @@
-package com.example.democamara
+package com.example.incidentmanager.ui.fragments.camera
 
 import android.graphics.BitmapFactory
 import android.os.Bundle

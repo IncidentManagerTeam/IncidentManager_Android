@@ -61,7 +61,7 @@ interface CsrfApi {
 @Singleton
 class CsrfService @Inject constructor() {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://ec2-100-26-239-75.compute-1.amazonaws.com:8080/")
+        .baseUrl("http://ec2-54-236-30-215.compute-1.amazonaws.com:8080/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val api: CsrfApi = retrofit.create(CsrfApi::class.java)
@@ -75,7 +75,7 @@ interface RegisterApi {
 @Singleton
 class RegisterService @Inject constructor() {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://ec2-100-26-239-75.compute-1.amazonaws.com:8080/")
+        .baseUrl("http://ec2-54-236-30-215.compute-1.amazonaws.com:8080/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val api: RegisterApi = retrofit.create(RegisterApi::class.java)

@@ -33,7 +33,6 @@ class IncidentManagerApiRepository @Inject constructor(
     //SUPUESTO GET ONE
     suspend fun getOneUser(email:String): UserApiModel? {
         try {
-            // Llamada a la API para obtener la lista de usuarios
             val simpleList = userService.api.getAllUser()
             for (i in simpleList){
                 if( email == i.email){
@@ -50,7 +49,7 @@ class IncidentManagerApiRepository @Inject constructor(
 
 
 
-    suspend fun getAllRegister(): List<RegisterApiModel> {
+    suspend fun getAllRegister(): RegisterApiModel {
         try {
             // Llamada a la API para obtener la lista de registros
             val simpleList = registerServie.api.getRegister()

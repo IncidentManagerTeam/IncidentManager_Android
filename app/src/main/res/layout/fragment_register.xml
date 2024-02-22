@@ -5,7 +5,7 @@
     android:id="@+id/registerFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.user.LoginFragment">
+    tools:context=".ui.fragments.user.RegisterFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -49,7 +49,8 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"></EditText>
+        app:layout_constraintTop_toBottomOf="@+id/name">
+    </EditText>
 
     <EditText
         android:id="@+id/password"
@@ -60,7 +61,8 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/surname"></EditText>
+        app:layout_constraintTop_toBottomOf="@+id/surname">
+    </EditText>
     <EditText
         android:id="@+id/repite_password"
         android:layout_width="215dp"
@@ -81,7 +83,8 @@
         android:hint="Eliga una clase"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/repite_password"></AutoCompleteTextView>
+        app:layout_constraintTop_toBottomOf="@+id/repite_password">
+    </AutoCompleteTextView>
 
     <Button
         android:id="@+id/buttom_register"
@@ -91,7 +94,8 @@
         android:hint="Registro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/select_class"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/select_class">
+    </Button>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
