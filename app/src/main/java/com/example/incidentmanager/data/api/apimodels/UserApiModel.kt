@@ -17,5 +17,7 @@ data class UserModel (
     val name: String,
     val surname: String,
     val email: String,
-    val course: String
+    val course: String,
+    val role: String,
+    val password: String
 )

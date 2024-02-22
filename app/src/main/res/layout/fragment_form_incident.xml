@@ -5,9 +5,7 @@
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.incidents.FormIncidentFragment"
-
-    >
+    tools:context=".ui.fragments.incidents.FormIncidentFragment">
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -16,8 +14,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/arrow_back" />
-
+        app:navigationIcon="@drawable/arrow_back">
+    </com.google.android.material.appbar.MaterialToolbar>
     <androidx.camera.view.PreviewView
         android:id="@+id/photo_preview"
         android:layout_width="294dp"
@@ -28,9 +26,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingClass">
-
     </androidx.camera.view.PreviewView>
-
     <EditText
         android:id="@+id/title"
         android:layout_width="215dp"
@@ -40,8 +36,8 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photo_preview" />
-
+        app:layout_constraintTop_toBottomOf="@+id/photo_preview">
+    </EditText>
     <EditText
         android:id="@+id/description"
         android:layout_width="205dp"
@@ -53,9 +49,7 @@
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title">
-
     </EditText>
-
     <EditText
         android:id="@+id/ubication"
         android:layout_width="197dp"
@@ -65,9 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description">
-
     </EditText>
-
     <Button
         android:id="@+id/buttom_create_incident"
         android:layout_width="wrap_content"
@@ -78,7 +70,5 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ubication">
-
     </Button>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

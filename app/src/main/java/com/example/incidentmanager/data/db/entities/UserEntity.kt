@@ -13,18 +13,19 @@ data class UserEntity(
     val nombre: String,
     val apellidos: String,
     val rol: String,
-    val clase: String
+    val clase: String,
+    val password: String
 )
 
 fun List<UserEntity>.asListUser():List<User> {
     return this.map {
         User(
-            it.id,
             it.email,
             it.nombre,
             it.apellidos,
             it.rol,
-            it.clase
+            it.clase,
+            it.password
         )
     }
 }

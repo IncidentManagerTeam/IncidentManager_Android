@@ -4,9 +4,13 @@ import com.example.incidentmanager.data.api.apimodels.CsrfApiModel
 import com.example.incidentmanager.data.api.apimodels.IncidentApiModel
 import com.example.incidentmanager.data.api.apimodels.ParkingApiModel
 import com.example.incidentmanager.data.api.apimodels.UserApiModel
+import com.example.incidentmanager.data.api.apimodels.UserModel
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.POST
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -69,7 +73,10 @@ class CsrfService @Inject constructor() {
 
 interface RegisterApi {
     @GET("register")
-    suspend fun getRegister(): CsrfApiModel
+    suspend fun getRegister(): UserApiModel
+
+    @POST("register")
+    suspend fun postRegister(@Body userModel: UserModel, @Header("X-CSRF-TOKEN") csrf: String): UserApiModel
 }
 
 @Singleton
