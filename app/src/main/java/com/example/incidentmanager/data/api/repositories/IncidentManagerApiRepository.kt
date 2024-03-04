@@ -59,7 +59,6 @@ class IncidentManagerApiRepository @Inject constructor(
         }
     }
 
-
     suspend fun getAllIncident(): List<IncidentApiModel> {
         try {
             // Llamada a la API para obtener la lista de indicencias
