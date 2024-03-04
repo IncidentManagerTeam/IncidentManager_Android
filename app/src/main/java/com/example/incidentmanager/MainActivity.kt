@@ -18,5 +18,6 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentLoginMainArea) as NavHostFragment
         navController = navHostFragment.navController
+        //
     }
 }
