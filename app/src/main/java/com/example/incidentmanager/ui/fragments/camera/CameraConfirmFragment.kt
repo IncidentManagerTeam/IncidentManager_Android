@@ -12,8 +12,9 @@ import android.widget.ImageView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.example.incidentmanager.databinding.FragmentCameraConfirmBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class CameraConfirmFragment : Fragment() {
     private lateinit var binding: FragmentCameraConfirmBinding
     private val sharedViewModel: CameraViewModel by activityViewModels()

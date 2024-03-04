@@ -29,11 +29,12 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.incidentmanager.R
 import com.example.incidentmanager.databinding.FragmentPreviewIncidentBinding
+import dagger.hilt.android.AndroidEntryPoint
 import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-
+@AndroidEntryPoint
 class previewIncidentFragment : Fragment() {
     private lateinit var binding: FragmentPreviewIncidentBinding
     private lateinit var imageCapture : ImageCapture

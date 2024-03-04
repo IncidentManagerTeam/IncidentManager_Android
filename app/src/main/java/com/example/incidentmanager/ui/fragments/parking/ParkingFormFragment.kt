@@ -11,10 +11,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.incidentmanager.data.db.repositories.models.Parking
 import com.example.incidentmanager.databinding.FragmentParkingFormBinding
 import com.example.incidentmanager.ui.viewmodels.ParkingFormViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 
+@AndroidEntryPoint
 class ParkingFormFragment : Fragment() {
     lateinit var binding:FragmentParkingFormBinding
     val viewModel:ParkingFormViewModel by viewModels()

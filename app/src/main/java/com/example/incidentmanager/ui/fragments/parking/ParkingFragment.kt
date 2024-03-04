@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.incidentmanager.R
 import com.example.incidentmanager.ui.viewmodels.ParkingViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ParkingFragment : Fragment() {
 
     companion object {

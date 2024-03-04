@@ -7,12 +7,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.fragment.findNavController
+import com.example.incidentmanager.R
 import com.example.incidentmanager.data.db.repositories.models.Incidencia
 import com.example.incidentmanager.databinding.FragmentFormIncidentBinding
 import com.example.incidentmanager.ui.viewmodels.IncidentFormViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class FormIncidentFragment : Fragment() {
     lateinit var binding: FragmentFormIncidentBinding
     val viewModel: IncidentFormViewModel by viewModels()
@@ -32,18 +36,19 @@ class FormIncidentFragment : Fragment() {
             var descripcion = binding.description.text.toString();
             var ubicacion = binding.ubication.text.toString();
             var imagen = binding.photoPreview.toString();
-            /*if (titulo.isNotBlank() && descripcion.isNotBlank() && ubicacion.isNotBlank()&&imagen.isNotBlank()) {
+            if (titulo.isNotBlank() && descripcion.isNotBlank() && ubicacion.isNotBlank()&&imagen.isNotBlank()) {
                 viewModel.viewModelScope.launch {
-                    viewModel.insertIncident(
+                    /*viewModel.insertIncident(
                         Incidencia(
                             idNav,titulo,descripcion,imagen,ubicacion
                         )
-                    )
+                    )*/
+                    findNavController().navigateUp()
                 }
             } else {
                 val toastMessage = "Rellene todos los datos"
                 Toast.makeText(requireContext(), toastMessage, Toast.LENGTH_SHORT).show()
-            }*/
+            }
         }
     }
     //CameraXConfiguration

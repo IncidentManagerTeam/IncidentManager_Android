@@ -24,7 +24,7 @@
         android:layout_width="279dp"
         android:layout_height="133dp"
         android:layout_marginTop="12dp"
-        android:src=""
+        android:src="@drawable/ic_launcher_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
