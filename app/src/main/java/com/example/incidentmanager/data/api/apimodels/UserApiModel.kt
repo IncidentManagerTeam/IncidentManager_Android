@@ -33,3 +33,7 @@ data class UserModel (
     val role: String,
     val password: String
 )
+data class UserLogin(
+    val email:String,
+    val password:String
+)

@@ -5,20 +5,23 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.PrimaryKey
 import androidx.room.Query
+import androidx.room.Update
 import com.example.incidentmanager.data.db.entities.ParkingEntity
 import kotlinx.coroutines.flow.Flow
 @Dao
 interface ParkingDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun createListIncident(listIncidentEntity:List<ParkingEntity>)
+    suspend fun createListParking(listIncidentEntity:List<ParkingEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun createOneParking(parkingEntity:ParkingEntity)
     @Query("SELECT * FROM parking")
     fun getAll(): Flow<List<ParkingEntity>>
     @Query("SELECT * FROM parking WHERE nsolicitud = :pkgId ")
-    fun getOneIncident(pkgId:Int): ParkingEntity
+    fun getOneParking(pkgId:Int): ParkingEntity
     @Query("DELETE FROM parking WHERE nsolicitud = :pkgId")
-    fun deleteOneIncident(pkgId:Int)
-    @Query("UPDATE parking SET matricula = :matricula ,nalumnos = :nalumnos,fecha = :fecha,estado = :estado WHERE nsolicitud = :pkgId")
-    fun updateOneIncident(pkgId:Int,matricula:String,nalumnos:Int,fecha:String ,estado:String): ParkingEntity
+    fun deleteOneParking(pkgId:Int)
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    suspend  fun updateOneParking(parkingEntity: ParkingEntity)
 
 
 }

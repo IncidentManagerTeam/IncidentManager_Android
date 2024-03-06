@@ -2,6 +2,7 @@ package com.example.incidentmanager.ui.fragments.user
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.example.incidentmanager.data.api.apimodels.UserLogin
 import com.example.incidentmanager.data.db.repositories.IncidentManagerRepository
 import com.example.incidentmanager.data.db.repositories.models.User
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,14 +19,20 @@ class LoginViewModel @Inject constructor(private val incidentManagerRepository:I
         }
 
     fun checkLoginStatus(): Boolean {
-        val user = incidentManagerRepository.logIn()
-        if (user != null) {
+        if (CurrentUser.value.email != "") {
             return true
         }
         return false
     }
-    suspend  fun logIn(){
-        var tokken = incidentManagerRepository.updateToken()
-        Log.d("TOKKEN", "El tokken es: $tokken")
+    suspend  fun logIn(user:UserLogin):User?{
+        var userAcc = incidentManagerRepository.logIn(user);
+        if(userAcc != null){
+            incidentManagerRepository.updateToken()
+            CurrentUser.value = userAcc.toUser();
+            return userAcc.toUser();
+        }
+        else{
+            return null;
+        }
     }
 }

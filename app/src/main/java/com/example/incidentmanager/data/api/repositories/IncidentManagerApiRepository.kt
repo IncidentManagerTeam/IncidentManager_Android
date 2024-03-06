@@ -9,8 +9,8 @@ import android.util.Log
 import com.example.incidentmanager.data.api.apimodels.CsrfApiModel
 import com.example.incidentmanager.data.api.apimodels.IncidentApiModel
 import com.example.incidentmanager.data.api.apimodels.ParkingApiModel
+import com.example.incidentmanager.data.api.apimodels.UserLogin
 import com.example.incidentmanager.data.api.apimodels.UserModel
-import com.example.incidentmanager.data.api.services.RegisterService
 
 import javax.inject.Inject
 
@@ -18,12 +18,11 @@ class IncidentManagerApiRepository @Inject constructor(
     private val userService: UserService,
     private val incidentService: IncidentService,
     private val parkingService: ParkingService,
-    private val csrfService: CsrfService,
-    private val registerService: RegisterService
+    private val csrfService: CsrfService
 ) {
-    suspend fun getAllUser(): List<UserApiModel> {
+    suspend fun getAllUser(authorization:String): List<UserApiModel> {
         try {
-            val userList = userService.api.getAllUser()
+            val userList = userService.api.getAllUser(authorization)
             return userList
         } catch (e: Exception) {
             Log.e("Error", "Error al obtener la lista de usuarios", e)
@@ -31,14 +30,11 @@ class IncidentManagerApiRepository @Inject constructor(
         }
     }
 
-    suspend fun getOneUser(email:String): UserApiModel? {
+    suspend fun getOneUser(id:Int,authorization:String): UserApiModel? {
         try {
-            // Llamada a la API para obtener la lista de usuarios
-            val userList = userService.api.getAllUser()
-            for (user in userList){
-                if (email == user.email) {
-                    return user;
-                }
+            val user = userService.api.getOneUser(authorization,id)
+            if (user!=null) {
+                return user;
             }
             return null
         } catch (e: Exception) {
@@ -49,47 +45,49 @@ class IncidentManagerApiRepository @Inject constructor(
 
     suspend fun postRegister(user: UserModel, csrf: String): UserApiModel? {
         try {
-            // Llamada a la API para registrar un nuevo usuario
-            val newUser = registerService.api.postRegister(user, csrf)
+            val newUser = userService.api.register(user, csrf)
             return newUser
         } catch (e: Exception) {
-            // Manejo de errores en caso de falla en la llamada a la API
             Log.e("Error", "Error al registrar un nuevo usuario", e)
-            return null // Devolvemos null en caso de error
+            return null
         }
     }
-
-    suspend fun getAllIncident(): List<IncidentApiModel> {
+    suspend fun login(userLogin: UserLogin):UserApiModel?{
         try {
-            // Llamada a la API para obtener la lista de indicencias
-            val incidentList = incidentService.api.getAllIncidents()
+            var token = csrfService.api.getCsrf()
+            val user = userService.api.logIn(userLogin,"$token")
+            return user
+        }catch ( e : Exception ){
+            var excepcion = e;
+            Log.e("Error", "Error al hacer el login con la excepcion : $e")
+            return null
+        }
+    }
+    suspend fun getAllIncident(authorization:String): List<IncidentApiModel> {
+        try {
+            val incidentList = incidentService.api.getAllIncidents(authorization)
             return incidentList
         } catch (e: Exception) {
-            // Manejo de errores en caso de falla en la llamada a la API
             Log.e("Error", "Error al obtener la lista de incidencias", e)
-            return emptyList() // Devolvemos una lista vacía en caso de error
+            return emptyList()
         }
     }
 
-    suspend fun getAllParking(): List<ParkingApiModel> {
+    suspend fun getAllParking(authorization:String): List<ParkingApiModel> {
         try {
-            // Llamada a la API para obtener la lista de parkings
-            val parkingList = parkingService.api.getAllParkings()
+            val parkingList = parkingService.api.getAllParkings(authorization)
             return parkingList
         } catch (e: Exception) {
-            // Manejo de errores en caso de falla en la llamada a la API
             Log.e("Error", "Error al obtener la lista de parkings", e)
-            return emptyList() // Devolvemos una lista vacía en caso de error
+            return emptyList()
         }
     }
 
     suspend fun getCsrf(): CsrfApiModel? {
         try {
-            // Llamada a la API para obtener el csrf
-            val csrfObject = csrfService.api.getCsrf()
-            return csrfObject
+            val csrf = csrfService.api.getCsrf()
+            return csrf
         } catch (e: Exception) {
-            // Manejo de errores en caso de falla en la llamada a la API
             Log.e("Error", "Error al obtener el csrf", e)
             return null
         }
