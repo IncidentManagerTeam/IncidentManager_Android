@@ -9,7 +9,7 @@ import java.util.Date
 data class ParkingEntity(
     val matricula: String,
     @PrimaryKey(autoGenerate = true)
-    val nsolicitud: Long,
+    val nsolicitud: Int,
     val nalumnos: Int,
     val fecha: String,
     val estado: String,

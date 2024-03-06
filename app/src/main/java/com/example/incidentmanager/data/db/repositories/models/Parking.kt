@@ -7,7 +7,7 @@ import java.util.Date
 
 data class Parking(
     val matricula: String,
-    val nsolicitud: Long,
+    val nsolicitud: Int,
     val nalumnos: Int,
     val fecha: String,
     val estado: String
