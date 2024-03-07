@@ -19,7 +19,7 @@ class IncidentFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflar el diseño del fragmento y vincular la vista
+        // Inflate the layout for this fragment
         binding = FragmentIncidentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -27,15 +27,13 @@ class IncidentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Configurar el listener de clics para el botón flotante
         binding.floatingActionButton.setOnClickListener {
-            // Navegar desde com.example.incidentmanager.ui.fragments.incidents.IncidentFragment a FormIncidentFragment
+            Log.d("Navigation", "Floating button clicked")
             try {
                 val action = IncidentFragmentDirections.actionIncidentFragmentToFormIncidentFragment()
                 findNavController().navigate(action)
             } catch (e: Exception) {
-                // Capturar y mostrar cualquier excepción que ocurra durante la navegación
-                Log.e("Navigation", "Error durante la navegación: ${e.message}")
+                Log.e("Navigation", "Error during navigation: ${e.message}")
             }
         }
     }

@@ -44,4 +44,5 @@
         android:name="com.example.incidentmanager.ui.fragments.incidents.FormIncidentFragment"
         android:label="fragment_form_incident"
         tools:layout="@layout/fragment_form_incident" />
+
 </navigation>
