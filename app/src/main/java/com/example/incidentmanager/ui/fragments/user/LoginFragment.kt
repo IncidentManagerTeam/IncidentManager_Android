@@ -41,10 +41,10 @@ class LoginFragment : Fragment() {
             }
             else{
                 binding.bottomLogin.setOnClickListener{
-                    val email = binding.editTextEmail.text.toString()
-                    val password = binding.editTextPassword.text.toString()
-                    val user = UserLogin(email,password)
                     viewModel.viewModelScope.launch {
+                        val email = binding.editTextEmail.text.toString()
+                        val password = binding.editTextPassword.text.toString()
+                        val user = UserLogin(email,password)
                         val validator = viewModel.logIn(user)
                         if(validator != null)
                             findNavController().navigate(R.id.incidentFragment)
