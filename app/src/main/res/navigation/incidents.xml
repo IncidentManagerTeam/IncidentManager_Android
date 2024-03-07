@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/incidents"
     app:startDestination="@id/incidentFragment">
+
     <fragment
         android:id="@+id/previewIncidentFragment"
         android:name="com.example.incidentmanager.ui.fragments.camera.previewIncidentFragment"
@@ -13,9 +14,11 @@
             app:destination="@id/cameraConfirmFragment">
             <argument
                 android:name="imageUri"
-                app:argType="string"></argument>
+                app:argType="string">
+            </argument>
         </action>
     </fragment>
+
     <fragment
         android:id="@+id/cameraConfirmFragment"
         android:name="com.example.incidentmanager.ui.fragments.camera.CameraConfirmFragment"
@@ -25,6 +28,7 @@
             android:id="@+id/action_cameraConfirmFragment_to_formIncidentFragment"
             app:destination="@id/formIncidentFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/incidentFragment"
         android:name="com.example.incidentmanager.ui.fragments.incidents.IncidentFragment"
@@ -34,13 +38,11 @@
             android:id="@+id/action_incidentFragment_to_formIncidentFragment"
             app:destination="@id/formIncidentFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/formIncidentFragment"
         android:name="com.example.incidentmanager.ui.fragments.incidents.FormIncidentFragment"
         android:label="fragment_form_incident"
-        tools:layout="@layout/fragment_form_incident" >
-        <action
-            android:id="@+id/action_formIncidentFragment_to_previewIncidentFragment"
-            app:destination="@id/previewIncidentFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_form_incident" />
+
 </navigation>
