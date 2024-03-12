@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(private val incidentManagerRepository:IncidentManagerRepository):ViewModel(){
-    private  var CurrentUser: MutableStateFlow<User> = MutableStateFlow(User("","","","","","") );
+    private  var CurrentUser: MutableStateFlow<User> = MutableStateFlow(User("","","","","") );
     val _staticCurrentUser : StateFlow<User>
         get() {
             return this.CurrentUser

@@ -8,7 +8,6 @@ data class User(
     val email: String,
     val nombre: String,
     val apellidos: String,
-    val rol: String?,
     val clase: String,
     val password: String
 )

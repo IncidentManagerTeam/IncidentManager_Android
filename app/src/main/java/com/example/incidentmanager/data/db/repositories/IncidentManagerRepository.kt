@@ -44,6 +44,12 @@ class IncidentManagerRepository @Inject constructor(
         return try {
             val userCreated = apiRepository.postRegister(user)
             userLogged = userCreated
+            if(user != null) {
+                userLogged?.password = user.password;
+                var credentials = "${userLogged?.email}:${userLogged?.password}"
+                val credentialsEn = Base64.encodeToString(credentials.toByteArray(), Base64.NO_WRAP)
+                authorization = "Basic $credentialsEn";
+            }
             userCreated
         } catch (e: Exception) {
             // Manejar el error adecuadamente, por ejemplo, registrar o lanzar una excepción
@@ -75,9 +81,14 @@ class IncidentManagerRepository @Inject constructor(
     }
 
     suspend fun register(user: UserModel): UserApiModel? {
-        var user = apiRepository.postRegister(user)
-        if(  user != null )
-            return user
+        userLogged = apiRepository.postRegister(user)
+        if(  user != null ){
+            userLogged?.password = user.password
+            var credentials = "${userLogged?.email}:${userLogged?.password}"
+            val credentialsEn = Base64.encodeToString(credentials.toByteArray(), Base64.NO_WRAP)
+            authorization = "Basic $credentialsEn";
+            return  userLogged
+        }
         return null
     }
 

@@ -12,7 +12,6 @@ data class UserEntity(
     val email: String,
     val nombre: String,
     val apellidos: String,
-    val rol: String,
     val clase: String,
     val password: String
 )
@@ -23,7 +22,6 @@ fun List<UserEntity>.asListUser():List<User> {
             it.email,
             it.nombre,
             it.apellidos,
-            it.rol,
             it.clase,
             it.password
         )

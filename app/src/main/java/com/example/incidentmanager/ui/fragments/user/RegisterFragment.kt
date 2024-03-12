@@ -43,14 +43,13 @@ class RegisterFragment : Fragment() {
                 surname,
                 email,
                 classroom,
-                "admin",
                 password
             )
             if(password == passwordAuthentication) {
                 viewModel.viewModelScope.launch {
                     var validator = viewModel.register(user)
                     if (validator != null)
-                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToIncidentFragment())
+                        findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToIncidentFragment())
                     else
                         Toast.makeText(
                             requireContext(),
