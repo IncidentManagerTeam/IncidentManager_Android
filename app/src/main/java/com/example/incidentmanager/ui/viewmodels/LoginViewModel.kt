@@ -27,7 +27,7 @@ class LoginViewModel @Inject constructor(private val incidentManagerRepository:I
     suspend  fun logIn(user:UserLogin):User?{
         var userAcc = incidentManagerRepository.logIn(user);
         if(userAcc != null){
-            incidentManagerRepository.updateToken()
+            //incidentManagerRepository.updateToken()
             CurrentUser.value = userAcc.toUser();
             return userAcc.toUser();
         }

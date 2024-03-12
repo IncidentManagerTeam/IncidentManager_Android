@@ -5,12 +5,14 @@ import com.example.incidentmanager.data.api.apimodels.UserApiModel
 import com.example.incidentmanager.data.api.services.UserService
 import android.util.Log
 import com.example.incidentmanager.data.api.apimodels.CsrfApiModel
-import com.example.incidentmanager.data.api.apimodels.IncidentApiModel
+import com.example.incidentmanager.data.api.apimodels.IncidentApiData
 import com.example.incidentmanager.data.api.apimodels.ParkingApiModel
 import com.example.incidentmanager.data.api.apimodels.UserLogin
 import com.example.incidentmanager.data.api.apimodels.UserModel
+import com.example.incidentmanager.data.db.repositories.models.IncidenciaRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import okhttp3.MultipartBody
 
 import javax.inject.Inject
 
@@ -67,23 +69,23 @@ class IncidentManagerApiRepository @Inject constructor(
             }
         }
     }
-    suspend fun getAllIncident(authorization:String): List<IncidentApiModel> {
+    suspend fun getAllIncident(authorization:String): List<IncidentApiData> {
         try {
             val incidentList = userService.api.getAllIncidents(authorization)
             return incidentList
         } catch (e: Exception) {
             Log.e("Error", "Error al obtener la lista de incidencias", e)
-            return emptyList()
+            return listOf()
         }
     }
 
-    suspend fun getAllParking(authorization:String): List<ParkingApiModel> {
+    suspend fun getAllParking(authorization:String):ParkingApiModel {
         try {
             val parkingList = userService.api.getAllParkings(authorization)
             return parkingList
         } catch (e: Exception) {
             Log.e("Error", "Error al obtener la lista de parkings", e)
-            return emptyList()
+            return ParkingApiModel(emptyList())
         }
     }
 
@@ -94,6 +96,15 @@ class IncidentManagerApiRepository @Inject constructor(
         } catch (e: Exception) {
             Log.e("Error", "Error al obtener el csrf", e)
             return null
+        }
+    }
+
+    suspend fun postIncident(authorization:String,incidentRequest: IncidenciaRequest,image: MultipartBody.Part) {
+        try {
+            var request = userService.api.postIncident(authorization,incidentRequest,image)
+        }catch (e:Exception){
+            Log.e("Error","Error al crear una incidencia")
+            e.printStackTrace()
         }
     }
 }

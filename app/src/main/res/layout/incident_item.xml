@@ -11,19 +11,24 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/constraintIncidentItem"
+        >
 
         <ImageView
 
             android:id="@+id/incident_img"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:src="@drawable/camara"
             tools:srcCompat="@tools:sample/avatars"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="TODO"
+            />
 
         <TextView
-            android:id="@+id/country_name"
+            android:id="@+id/incident_name"
             style="@style/TextAppearance.Material3.HeadlineLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

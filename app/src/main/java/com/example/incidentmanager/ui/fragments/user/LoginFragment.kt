@@ -47,7 +47,7 @@ class LoginFragment : Fragment() {
                         val user = UserLogin(email,password)
                         val validator = viewModel.logIn(user)
                         if(validator != null)
-                            findNavController().navigate(R.id.incidentFragment)
+                            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToIncidentFragment())
                         else
                             Toast.makeText(requireContext(), "El usuario no existe o la contraseña no es correcta", Toast.LENGTH_SHORT).show()
                     }

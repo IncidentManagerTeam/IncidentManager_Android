@@ -1,10 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/login"
+    app:startDestination="@id/loginFragment"
     >
-    <include app:graph="@navigation/incidents"/>
-    <include app:graph="@navigation/parkings"/>
-    <include app:graph="@navigation/login"/>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.incidentmanager.ui.fragments.user.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_incidentFragment"
+            app:destination="@id/incidentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.incidentmanager.ui.fragments.user.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_incidentFragment"
+            app:destination="@id/incidentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/incidentFragment"
+        android:name="com.example.incidentmanager.ui.fragments.incidents.IncidentFragment"
+        android:label="fragment_incident"
+        tools:layout="@layout/fragment_incident" >
+        <action
+            android:id="@+id/action_incidentFragment_to_formIncidentFragment"
+            app:destination="@id/formIncidentFragment" />
+        <action
+            android:id="@+id/action_incidentFragment_to_incidentDetailFragment"
+            app:destination="@id/incidentDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/formIncidentFragment"
+        android:name="com.example.incidentmanager.ui.fragments.incidents.FormIncidentFragment"
+        android:label="fragment_form_incident"
+        tools:layout="@layout/fragment_form_incident" >
+
+        <action
+            android:id="@+id/action_formIncidentFragment_to_previewIncidentFragment"
+            app:destination="@id/previewIncidentFragment" />
+        <argument
+            android:name="imageUri"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/previewIncidentFragment"
+        android:name="com.example.incidentmanager.ui.fragments.camera.previewIncidentFragment"
+        android:label="previewIncidentFragment">
+        <action
+            android:id="@+id/action_previewIncidentFragment_to_cameraConfirmFragment"
+            app:destination="@id/cameraConfirmFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cameraConfirmFragment"
+        android:name="com.example.incidentmanager.ui.fragments.camera.CameraConfirmFragment"
+        android:label="fragment_camera_confirm"
+        tools:layout="@layout/fragment_camera_confirm" >
+        <action
+            android:id="@+id/action_cameraConfirmFragment_to_formIncidentFragment"
+            app:destination="@id/formIncidentFragment">
+        </action>
+        <argument
+            android:name="imageUri"
+            app:argType="string">
+
+        </argument>
+    </fragment>
+    <fragment
+        android:id="@+id/incidentDetailFragment"
+        android:name="com.example.incidentmanager.ui.fragments.incidents.IncidentDetailFragment"
+        android:label="fragment_incident_detail"
+        tools:layout="@layout/fragment_incident_detail" >
+        <action
+            android:id="@+id/action_incidentDetailFragment_to_incidentFragment"
+            app:destination="@id/incidentFragment" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="place"
+            app:argType="string" />
+        <argument
+            android:name="imageUri"
+            app:argType="string" />
+    </fragment>
 </navigation>
