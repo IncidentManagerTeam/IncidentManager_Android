@@ -38,33 +38,43 @@ class RegisterFragment : Fragment() {
             var name = binding.name.text.toString()
             var surname = binding.surname.text.toString()
             var classroom = binding.selectClass.text.toString()
-            var user = UserModel(
-                name,
-                surname,
-                email,
-                classroom,
-                password
-            )
-            if(password == passwordAuthentication) {
-                viewModel.viewModelScope.launch {
-                    var validator = viewModel.register(user)
-                    if (validator != null)
-                        findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToIncidentFragment())
-                    else
-                        Toast.makeText(
-                            requireContext(),
-                            "Rellene todos los campos",
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
+            if( !email.isNullOrEmpty() && !email.isNullOrEmpty() && !password.isNullOrEmpty() && !passwordAuthentication.isNullOrEmpty() && !name.isNullOrEmpty() && !surname.isNullOrEmpty() && !classroom.isNullOrEmpty() ) {
+                var user = UserModel(
+                    name,
+                    surname,
+                    email,
+                    classroom,
+                    password
+                )
+                if (password == passwordAuthentication) {
+                    viewModel.viewModelScope.launch {
+                        var validator = viewModel.register(user)
+                        if (validator != null)
+                            findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToIncidentFragment())
+                        else
+                            Toast.makeText(
+                                requireContext(),
+                                "Error en el registro",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                    }
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Ambas contraseñas deben ser iguales",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
                 }
-            }
-            else{
-                Toast.makeText(requireContext(), "Ambas contraseñas deben ser iguales", Toast.LENGTH_SHORT)
+
+            } else
+                Toast.makeText(
+                    requireContext(),
+                    "Rellene todos los campos",
+                    Toast.LENGTH_SHORT
+                )
                     .show()
-            }
-
-
         }
 
     }
