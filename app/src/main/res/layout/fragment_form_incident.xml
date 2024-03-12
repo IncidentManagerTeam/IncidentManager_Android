@@ -25,50 +25,62 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingClass">
-    </androidx.camera.view.PreviewView>
+        />
+    <ImageView
+        android:id="@+id/image_preview"
+        android:layout_width="294dp"
+        android:layout_height="157dp"
+        android:layout_margin="42dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/incident"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone" />
+
     <EditText
         android:id="@+id/title"
         android:layout_width="215dp"
         android:layout_height="46dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="265dp"
         android:hint="Titulo"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photo_preview">
+        app:layout_constraintTop_toTopOf="parent">
     </EditText>
     <EditText
         android:id="@+id/description"
         android:layout_width="205dp"
         android:layout_height="49dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="365dp"
         android:hint="Description"
         android:inputType="textLongMessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title">
+        app:layout_constraintTop_toTopOf="parent">
     </EditText>
     <EditText
-        android:id="@+id/location"
+        android:id="@+id/ubication"
         android:layout_width="197dp"
         android:layout_height="64dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="465dp"
         android:hint="Ubicación"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description">
+        app:layout_constraintTop_toTopOf="parent">
     </EditText>
     <Button
-        android:id="@+id/button_create_incident"
+        android:id="@+id/buttom_create_incident"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="565dp"
         android:text="Crear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/location">
+        app:layout_constraintTop_toTopOf="parent">
     </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

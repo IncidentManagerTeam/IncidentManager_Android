@@ -39,7 +39,9 @@
                 android:layout_marginTop="96dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars">
+                tools:srcCompat="@tools:sample/avatars"
+                android:src="@drawable/camara"
+                >
 
             </ImageView>
 
@@ -51,17 +53,21 @@
                 android:layout_marginTop="260dp"
                 android:text="Titulo"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></TextView>
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
 
             <TextView
-                android:id="@+id/name_incident"
+                android:id="@+id/title_incident"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="232dp"
                 android:layout_marginTop="276dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Pomo Roto"></TextView>
+                tools:text="Pomo Roto">
+
+            </TextView>
 
             <TextView
                 android:id="@+id/title_description_incident"
@@ -71,7 +77,9 @@
                 android:layout_marginTop="356dp"
                 android:text="Descripción"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></TextView>
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
 
             <TextView
                 android:id="@+id/description_incident"
@@ -81,7 +89,9 @@
                 android:layout_marginTop="348dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Pomo Roto debido que un tornillo se ha caido"></TextView>
+                tools:text="Pomo Roto debido que un tornillo se ha caido">
+
+            </TextView>
 
             <TextView
                 android:id="@+id/title_ubication_incident"
@@ -91,7 +101,9 @@
                 android:layout_marginTop="480dp"
                 android:text="Ubicación"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></TextView>
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
 
             <TextView
                 android:id="@+id/ubication_incident"
@@ -101,9 +113,24 @@
                 android:layout_marginTop="456dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Aula 13"></TextView>
+                tools:text="Aula 13">
+
+            </TextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
+<Button
+    android:id="@+id/delete_incident"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="90dp"
+    android:layout_marginStart="55dp"
+    android:backgroundTint="@color/design_default_color_error"
+    android:text="Eliminar Incidencia"
+    android:textSize="20dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    >
 
+</Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

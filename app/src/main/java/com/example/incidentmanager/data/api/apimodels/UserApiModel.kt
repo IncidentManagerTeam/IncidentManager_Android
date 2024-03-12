@@ -10,15 +10,15 @@ data class UserApiModel (
     val surname: String,
     val email: String,
     val course: String,
-    val role: String,
-    val password: String
+    val role: String?,
+    var password: String
 ) {
     fun toUser(): User {
         return  User(
             email,
             name,
             surname,
-            role,
+            "admin",
             course,
             password
         )
@@ -30,7 +30,7 @@ data class UserModel (
     val surname: String,
     val email: String,
     val course: String,
-    val role: String,
+    val role: String?,
     val password: String
 )
 data class UserLogin(

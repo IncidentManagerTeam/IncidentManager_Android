@@ -63,12 +63,14 @@ class previewIncidentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (allPermissionGranted()){
+        val permisos = allPermissionGranted()
+        if (permisos){
             startCamera()
         }else{
             ActivityCompat.requestPermissions(
                 requireActivity(), REQUIRED_PERMISSIONS,  REQUEST_CODE_PERMISSIONS)
         }
+        startCamera()
         binding.buttonPhoto.setOnClickListener {
             takePhoto()
         }

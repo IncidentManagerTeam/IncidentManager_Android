@@ -3,6 +3,7 @@ package com.example.incidentmanager.ui.fragments.user
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.incidentmanager.data.api.apimodels.UserLogin
+import com.example.incidentmanager.data.api.apimodels.UserModel
 import com.example.incidentmanager.data.db.repositories.IncidentManagerRepository
 import com.example.incidentmanager.data.db.repositories.models.User
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -27,12 +28,23 @@ class LoginViewModel @Inject constructor(private val incidentManagerRepository:I
     suspend  fun logIn(user:UserLogin):User?{
         var userAcc = incidentManagerRepository.logIn(user);
         if(userAcc != null){
-            incidentManagerRepository.updateToken()
-            CurrentUser.value = userAcc.toUser();
-            return userAcc.toUser();
+            //incidentManagerRepository.updateToken()
+            CurrentUser.value = userAcc.toUser()
+            return userAcc.toUser()
         }
         else{
-            return null;
+            return null
+        }
+    }
+
+    suspend fun register(user: UserModel): User? {
+        var userAcc = incidentManagerRepository.register(user)
+        if(userAcc != null){
+            CurrentUser.value = userAcc.toUser();
+            return userAcc.toUser()
+        }
+        else{
+            return null
         }
     }
 }

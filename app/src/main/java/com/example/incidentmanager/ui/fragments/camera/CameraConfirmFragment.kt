@@ -11,7 +11,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.incidentmanager.databinding.FragmentCameraConfirmBinding
+import com.example.incidentmanager.ui.fragments.incidents.IncidentFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,13 +44,7 @@ class CameraConfirmFragment : Fragment() {
             }
 
             // Crear un ImageView programáticamente
-            val imageView = ImageView(requireContext()).apply {
-                layoutParams = ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT
-                )
-                scaleType = ImageView.ScaleType.CENTER_CROP
-            }
+            val imageView = ImageView(requireContext())
 
             // Establecer el bitmap en el ImageView
             bitmap?.let {
@@ -57,6 +53,10 @@ class CameraConfirmFragment : Fragment() {
 
             // Agregar el ImageView al contenedor del Fragmento
             (view as? ViewGroup)?.addView(imageView)
+            binding.buttonPhotoConfirmed.setOnClickListener{
+                val navigation = CameraConfirmFragmentDirections.actionCameraConfirmFragmentToFormIncidentFragment(uri.toString())
+                findNavController().navigate(navigation);
+            }
         }
     }
 }
