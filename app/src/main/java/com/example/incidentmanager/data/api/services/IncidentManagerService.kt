@@ -59,7 +59,7 @@ interface UserApi {
 @Singleton
 class UserService @Inject constructor() {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://c1e6-83-60-147-66.ngrok-free.app")
+        .baseUrl("https://d164-79-145-80-213.ngrok-free.app")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

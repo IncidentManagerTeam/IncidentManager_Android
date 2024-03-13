@@ -39,36 +39,44 @@ class RegisterFragment : Fragment() {
             var surname = binding.surname.text.toString()
             var classroom = binding.selectClass.text.toString()
             if( !email.isNullOrEmpty() && !email.isNullOrEmpty() && !password.isNullOrEmpty() && !passwordAuthentication.isNullOrEmpty() && !name.isNullOrEmpty() && !surname.isNullOrEmpty() && !classroom.isNullOrEmpty() ) {
-                var user = UserModel(
-                    name,
-                    surname,
-                    email,
-                    classroom,
-                    password
-                )
-                if (password == passwordAuthentication) {
-                    viewModel.viewModelScope.launch {
-                        var validator = viewModel.register(user)
-                        if (validator != null)
-                            findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToIncidentFragment())
-                        else
-                            Toast.makeText(
-                                requireContext(),
-                                "Error en el registro",
-                                Toast.LENGTH_SHORT
-                            )
-                                .show()
-                    }
-                } else {
-                    Toast.makeText(
-                        requireContext(),
-                        "Ambas contraseñas deben ser iguales",
-                        Toast.LENGTH_SHORT
+                if("@gmail.com" in email || "@hotmail.com" in email) {
+                    var user = UserModel(
+                        name,
+                        surname,
+                        email,
+                        classroom,
+                        password
                     )
-                        .show()
+                    if (password == passwordAuthentication) {
+                        viewModel.viewModelScope.launch {
+                            var validator = viewModel.register(user)
+                            if (validator != null)
+                                findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToIncidentFragment())
+                            else
+                                Toast.makeText(
+                                    requireContext(),
+                                    "Error en el registro",
+                                    Toast.LENGTH_SHORT
+                                )
+                                    .show()
+                        }
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            "Ambas contraseñas deben ser iguales",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    }
                 }
-
-            } else
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Solo se admiten correos gmail o hotmail",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+            }
                 Toast.makeText(
                     requireContext(),
                     "Rellene todos los campos",

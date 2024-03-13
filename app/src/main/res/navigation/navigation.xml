@@ -36,11 +36,11 @@
         android:label="fragment_incident"
         tools:layout="@layout/fragment_incident" >
         <action
-            android:id="@+id/action_incidentFragment_to_formIncidentFragment"
-            app:destination="@id/formIncidentFragment" />
-        <action
             android:id="@+id/action_incidentFragment_to_incidentDetailFragment"
             app:destination="@id/incidentDetailFragment" />
+        <action
+            android:id="@+id/action_incidentFragment_to_formIncidentFragment"
+            app:destination="@id/formIncidentFragment" />
     </fragment>
     <fragment
         android:id="@+id/formIncidentFragment"

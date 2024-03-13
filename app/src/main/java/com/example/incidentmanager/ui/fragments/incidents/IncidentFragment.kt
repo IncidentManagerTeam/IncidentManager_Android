@@ -58,7 +58,6 @@ class IncidentFragment : Fragment() {
             binding.floatingActionButton.setOnClickListener{
                 val navigation = IncidentFragmentDirections.actionIncidentFragmentToFormIncidentFragment("")
                 findNavController().navigate(navigation);
-                findNavController().popBackStack(R.id.incidentFragment,false)
             }
         }
     }
