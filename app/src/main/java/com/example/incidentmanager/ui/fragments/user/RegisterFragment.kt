@@ -38,7 +38,7 @@ class RegisterFragment : Fragment() {
             var name = binding.name.text.toString()
             var surname = binding.surname.text.toString()
             var classroom = binding.selectClass.text.toString()
-            if( !email.isNullOrEmpty() && !email.isNullOrEmpty() && !password.isNullOrEmpty() && !passwordAuthentication.isNullOrEmpty() && !name.isNullOrEmpty() && !surname.isNullOrEmpty() && !classroom.isNullOrEmpty() ) {
+            if( !email.isNullOrEmpty()  && !password.isNullOrEmpty() && !passwordAuthentication.isNullOrEmpty() && !name.isNullOrEmpty() && !surname.isNullOrEmpty() && !classroom.isNullOrEmpty() ) {
                 if("@gmail.com" in email || "@hotmail.com" in email) {
                     var user = UserModel(
                         name,
@@ -55,7 +55,7 @@ class RegisterFragment : Fragment() {
                             else
                                 Toast.makeText(
                                     requireContext(),
-                                    "Error en el registro",
+                                    "Error en el registro, el correo ya existe",
                                     Toast.LENGTH_SHORT
                                 )
                                     .show()
@@ -68,21 +68,22 @@ class RegisterFragment : Fragment() {
                         )
                             .show()
                     }
+                }else{
+                    Toast.makeText(
+                        requireContext(),
+                        "Solo se admiten correos gmail o hotmail",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
                 }
             } else {
-                Toast.makeText(
-                    requireContext(),
-                    "Solo se admiten correos gmail o hotmail",
-                    Toast.LENGTH_SHORT
-                )
-                    .show()
-            }
                 Toast.makeText(
                     requireContext(),
                     "Rellene todos los campos",
                     Toast.LENGTH_SHORT
                 )
                     .show()
+            }
         }
 
     }

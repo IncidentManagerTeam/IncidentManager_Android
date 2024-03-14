@@ -67,12 +67,15 @@ class FormIncidentFragment : Fragment() {
             binding.photoPreview.visibility = View.VISIBLE
             binding.imagePreview.visibility = View.GONE
         }
+        binding.backButton.setOnClickListener{
+            findNavController().navigate(R.id.incidentFragment)
+        }
         binding.buttomCreateIncident.setOnClickListener {
             val titulo = binding.title.text.toString()
             val descripcion = binding.description.text.toString()
             val ubicacion = binding.ubication.text.toString()
             val imagen = binding.imagePreview.toString()
-            val classroom = "DAM 2"
+
 
             if (titulo.isNotBlank() && descripcion.isNotBlank() && ubicacion.isNotBlank() && imagen.isNotBlank()) {
                 viewModel.viewModelScope.launch {
@@ -109,6 +112,7 @@ class FormIncidentFragment : Fragment() {
 
                     viewModel.createOneIncident(incident, body)
                     findNavController().navigate(R.id.incidentFragment)
+
                 }
             } else {
                 val toastMessage = "Rellene todos los datos"

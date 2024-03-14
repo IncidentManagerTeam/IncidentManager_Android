@@ -16,6 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class IncidentViewModel @Inject constructor(private val incidentManagerRepository: IncidentManagerRepository):ViewModel(){
+
+
     private  var _incidentList: MutableStateFlow<List<Incidencia>> = MutableStateFlow(listOf())
     val incidentList : StateFlow<List<Incidencia>>
         get() {
@@ -24,6 +26,9 @@ class IncidentViewModel @Inject constructor(private val incidentManagerRepositor
     suspend  fun getAllIncidents(){
         incidentManagerRepository.getAll()
         _incidentList.value = incidentManagerRepository.incidentList.value
+    }
+    fun  logOff() {
+        incidentManagerRepository.userLogged = null;
     }
     init {
         this.viewModelScope.launch {

@@ -52,6 +52,9 @@ class IncidentDetailFragment : Fragment() {
         binding.descriptionIncident.text = description
         binding.titleIncident.text = title
         binding.ubicationIncident.text = place
+        binding.backButton.setOnClickListener {
+            findNavController().navigate(R.id.incidentFragment)
+        }
         binding.deleteIncident.setOnClickListener{
             viewModel.viewModelScope.launch {
                 viewModel.deleteIncident(id)

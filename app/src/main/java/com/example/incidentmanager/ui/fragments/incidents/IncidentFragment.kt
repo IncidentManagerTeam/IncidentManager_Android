@@ -57,7 +57,12 @@ class IncidentFragment : Fragment() {
         viewModel.viewModelScope.launch {
             binding.floatingActionButton.setOnClickListener{
                 val navigation = IncidentFragmentDirections.actionIncidentFragmentToFormIncidentFragment("")
-                findNavController().navigate(navigation);
+                findNavController().navigate(navigation)
+            }
+            binding.cerrarSesion.setOnClickListener{
+                val navigation = IncidentFragmentDirections.actionIncidentFragmentToLoginFragment()
+                findNavController().navigate(navigation)
+                viewModel.logOff()
             }
         }
     }
