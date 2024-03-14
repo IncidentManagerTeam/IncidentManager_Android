@@ -5,9 +5,7 @@
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.FormIncidentFragment"
-
-    >
+    tools:context=".ui.fragments.incidents.FormIncidentFragment">
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -16,8 +14,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/arrow_back" />
-
+        >
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:src="@drawable/arrow_back"
+            >
+        </ImageView>
+    </com.google.android.material.appbar.MaterialToolbar>
     <androidx.camera.view.PreviewView
         android:id="@+id/photo_preview"
         android:layout_width="294dp"
@@ -27,58 +32,72 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingClass">
-
-    </androidx.camera.view.PreviewView>
+        />
+    <ImageView
+        android:id="@+id/image_preview"
+        android:layout_width="294dp"
+        android:layout_height="157dp"
+        android:layout_margin="42dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/incident"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/title"
+        android:visibility="gone" />
 
     <EditText
         android:id="@+id/title"
-        android:layout_width="215dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
         android:hint="Titulo"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photo_preview" />
+        app:layout_constraintTop_toBottomOf="@+id/photo_preview"
+        app:layout_constraintBottom_toTopOf="@id/description"/>
 
     <EditText
         android:id="@+id/description"
-        android:layout_width="205dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
         android:hint="Description"
         android:inputType="textLongMessage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title">
-
-    </EditText>
+        app:layout_constraintTop_toBottomOf="@+id/title"/>
 
     <EditText
         android:id="@+id/ubication"
-        android:layout_width="197dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
         android:hint="Ubicación"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description">
-
-    </EditText>
+        app:layout_constraintTop_toBottomOf="@+id/description"/>
 
     <Button
         android:id="@+id/buttom_create_incident"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
         android:text="Crear"
+        android:backgroundTint="#FFEB3B"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ubication">
-
-    </Button>
-
+        app:layout_constraintTop_toBottomOf="@+id/ubication"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

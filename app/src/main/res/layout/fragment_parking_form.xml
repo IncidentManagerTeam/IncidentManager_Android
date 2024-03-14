@@ -5,7 +5,7 @@
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.ParkingFormFragment"
+    tools:context=".ui.fragments.parking.ParkingFormFragment"
     >
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -33,7 +33,7 @@
         android:layout_height="49dp"
         android:layout_marginTop="56dp"
         android:hint="Nº Alumnos"
-        android:inputType="textLongMessage"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
 
     </EditText>
 
-    <EditText
+    <TextView
         android:id="@+id/Date"
         android:layout_width="197dp"
         android:layout_height="64dp"
@@ -51,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/students">
 
-    </EditText>
+    </TextView>
 
     <Button
         android:id="@+id/buttom_create_request"
