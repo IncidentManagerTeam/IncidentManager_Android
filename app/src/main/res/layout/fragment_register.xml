@@ -21,10 +21,10 @@
 
     <ImageView
         android:id="@+id/imageViewLogo"
-        android:layout_width="279dp"
-        android:layout_height="133dp"
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
         android:layout_marginTop="12dp"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/iconovt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
@@ -91,7 +91,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="Registro"
+        android:text="Registro"
+        android:backgroundTint="#03A9F4"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/select_class">
